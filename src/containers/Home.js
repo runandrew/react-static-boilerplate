@@ -34,32 +34,34 @@ export default withRouteData(({ projects }) => (
           <div className="col-xs-12 col-md-10 col-lg-8">
             <h2 className="sect-title">Skills &amp; Education</h2>
             <p className="line-item">
-              <semistrong>Proficient</semistrong>: JavaScript, Node.js, Express,
-              React, Redux, Sequelize, HTML5, CSS, ES6, Git / Github, Socket.io,
-              MATLAB
+              <span className="semistrong">Proficient</span>: JavaScript,
+              Node.js, Express, React, Redux, Sequelize, HTML5, CSS, ES6, Git /
+              Github, Socket.io, MATLAB
             </p>
             <p className="line-item">
-              <semistrong>Knowledgeable</semistrong>: D3.js, Angular, Electron,
-              PostgreSQL, Mocha, Chai, jQuery, SASS
+              <span className="semistrong">Knowledgeable</span>: D3.js, Angular,
+              Electron, PostgreSQL, Mocha, Chai, jQuery, SASS
             </p>
             <p className="line-item">
-              <semistrong>Familiar</semistrong>: SQL, Jest, Gulp, Elm
+              <span className="semistrong">Familiar</span>: SQL, Jest, Gulp, Elm
             </p>
             <p className="line-item">
-              <semistrong>Interested</semistrong>: Machine Learning, Hadoop, R
+              <span className="semistrong">Interested</span>: Machine Learning,
+              Hadoop, R
             </p>
             <hr className="sub-divide" />
             <p className="line-item">
-              <semistrong>M.S. Mechanical Engineering</semistrong>, Ohio State
-              University
+              <span className="semistrong">M.S. Mechanical Engineering</span>,
+              Ohio State University
             </p>
             <p className="line-item">
-              <semistrong>B.S. Mechanical Engineering</semistrong>, Ohio State
-              University
+              <span className="semistrong">B.S. Mechanical Engineering</span>,
+              Ohio State University
             </p>
             <p className="line-item">
-              <semistrong>Software Engineering Immersive Program</semistrong>,
-              Fullstack Academy
+              <span className="semistrong">
+                Software Engineering Immersive Program
+              </span>, Fullstack Academy
             </p>
             <hr className="sub-divide" />
             <p className="line-item">
@@ -84,7 +86,9 @@ export default withRouteData(({ projects }) => (
                 <div className="thing" key={i}>
                   <p className="line-item">
                     <a href={`/projects/${project.data.slug}`}>
-                      <semistrong>{project.data.projectName}</semistrong>
+                      <span className="semistrong">
+                        {project.data.projectName}
+                      </span>
                     </a>
                     - {project.data.year}
                   </p>

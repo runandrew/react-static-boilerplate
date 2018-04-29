@@ -109,7 +109,6 @@ export default {
   getRoutes: async () => {
     const posts = await getPosts();
     const projects = await getProjects();
-    console.log(projects);
     return [
       {
         path: "/",
@@ -125,20 +124,6 @@ export default {
           component: "src/containers/Project",
           getData: () => ({
             project
-          })
-        }))
-      },
-      {
-        path: "/blog",
-        component: "src/containers/Blog",
-        getData: () => ({
-          posts
-        }),
-        children: posts.map(post => ({
-          path: `/post/${post.data.slug}`,
-          component: "src/containers/Post",
-          getData: () => ({
-            post
           })
         }))
       },
