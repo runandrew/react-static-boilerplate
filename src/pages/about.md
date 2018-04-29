@@ -1,5 +1,9 @@
 ---
 title: About Title
-date:
-p1: This is a paragraph
+date: '2018-04-12'
+p1: |-
+  This is a paragraph
+
+  Wohoooo!
 ---
+
