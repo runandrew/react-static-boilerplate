@@ -53,7 +53,7 @@ export default withRouteData(({ project }) => (
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
-            <p>&copy; Andrew Garcia 2017 - Designed and built with &#9829;</p>
+            <p>&copy; Andrew Garcia 2018 - Designed and built with &#9829;</p>
           </div>
         </div>
       </div>
