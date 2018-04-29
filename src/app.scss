@@ -1,0 +1,302 @@
+// Variables
+$columnNo: 12;
+$gutter: 35px;
+$breakpoints: (
+  xs: 0px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$alternateSectBg: #efefef;
+
+body {
+  margin: 0;
+  background-color: #f7f7f7;
+  a:link,
+  a:visited,
+  a:active,
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  font-family: "Lato", sans-serif;
+}
+
+.row:before,
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+[class*="col-"] {
+  float: left;
+  min-height: 1px;
+  width: 16.66%;
+  padding: 0 $gutter/2;
+}
+
+semistrong {
+  font-weight: 400;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+hr.sub-divide {
+  border-top: 1px solid #c9c9c9;
+  margin: 24px 0px;
+}
+
+span.tag-tech {
+  display: inline-block;
+  background-color: #ffd27f;
+  padding: 3px 12px;
+  border-radius: 9px;
+  margin: 3px 2px;
+}
+
+img {
+  width: 100%;
+}
+
+.right {
+  float: right;
+}
+
+// Responsive
+@each $name, $breakpoint in $breakpoints {
+  @media only screen and (min-width: $breakpoint) {
+    $idx: index($breakpoints, ($name $breakpoint));
+    // Grid sizing
+    @for $i from 1 through 12 {
+      .col-#{$name}-#{$i} {
+        width: $i/$columnNo * 100%;
+      }
+    }
+
+    .section {
+      padding: #{nth((48, 60, 72, 72, 72), $idx)}px #{nth(
+          (12, 30, 30, 30, 30),
+          $idx
+        )}px;
+    }
+
+    #about-row {
+      padding-top: #{nth((30, 60, 90, 114, 132), $idx)}px;
+    }
+
+    #top-rectUnder {
+      background-color: orange;
+      height: #{nth((12, 18, 18, 18, 18), $idx)}px;
+      width: 180px;
+      content: "";
+    }
+
+    h1 {
+      font-size: calc(6px * #{nth((7, 8, 9, 9, 9), $idx)});
+      font-weight: 300;
+      margin: 6px 0;
+    }
+
+    h2 {
+      font-size: calc(6px * #{nth((5, 5, 6, 6, 6), $idx)});
+      font-weight: 300;
+      margin: 6px 0;
+    }
+
+    p {
+      font-size: calc(6px * #{nth((3, 3, 3.3, 3.3, 3.3), $idx)});
+      font-weight: 300;
+      margin: 6px 0;
+      line-height: 30px;
+    }
+
+    p.line-item {
+      font-size: calc(6px * #{nth((3.3, 3.3, 4, 4, 4), $idx)});
+      font-weight: 300;
+      margin: #{nth((6, 6, 12, 12, 12), $idx)}px 0;
+    }
+
+    .thing {
+      margin-bottom: #{nth((24, 24, 36, 36, 36), $idx)}px;
+    }
+  }
+}
+
+.sect-title {
+  margin-bottom: 24px;
+}
+
+.marg-top {
+  margin-top: 12px;
+}
+
+.no-gutter {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.alternateSectBg {
+  background-color: $alternateSectBg;
+}
+
+.right-space {
+  margin-right: 12px;
+}
+
+#skills-sect {
+  $skills-sect-color: #4990e2;
+  $skills-sect-color-light: #8ab6fc;
+
+  h2 {
+    color: $skills-sect-color;
+  }
+
+  a:link,
+  a:visited,
+  a:active,
+  a:hover {
+    text-decoration: none;
+    border-bottom: 4px solid $skills-sect-color-light;
+    transition: all 0.25s ease-in-out;
+    padding: 2px 2px 0 2px;
+    &:hover {
+      background-color: $skills-sect-color-light;
+    }
+  }
+}
+
+#projects-sect {
+  $projects-sect-color: #bd0fe1;
+  $projects-sect-color-light: #e3c0eb;
+
+  h2 {
+    color: $projects-sect-color;
+  }
+
+  a:link,
+  a:visited,
+  a:active,
+  a:hover {
+    text-decoration: none;
+    border-bottom: 4px solid $projects-sect-color-light;
+    transition: all 0.25s ease-in-out;
+    padding: 2px 2px 0 2px;
+    &:hover {
+      background-color: $projects-sect-color-light;
+    }
+  }
+}
+
+#contact-sect {
+  $contact-sect-color: #65ab18;
+  $contact-sect-color-light: #c1e29c;
+
+  h2 {
+    color: #65ab18;
+  }
+
+  a:link,
+  a:visited,
+  a:active,
+  a:hover {
+    text-decoration: none;
+    border-bottom: 4px solid $contact-sect-color-light;
+    transition: all 0.25s ease-in-out;
+    padding: 2px 2px 0 2px;
+    &:hover {
+      background-color: $contact-sect-color-light;
+    }
+  }
+}
+
+#footer-sect {
+  padding-top: 18px;
+  padding-bottom: 18px;
+
+  p {
+    font-size: 1rem;
+  }
+}
+
+/*
+	MINIMAL DESIGN
+	based on the sleek design of Jacob SÃ¤wensten ( http://www.jacobsawensten.com/ )
+	PDF: https://dribbble.com/shots/1460141-Free-minimal-browser-window/attachments/216671
+*/
+.facade-minimal {
+  position: relative;
+  margin: 24px 0;
+  padding: 55px 0px 0px 0px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  color: #454545;
+  border-radius: 3px;
+  overflow-x: hidden;
+}
+
+/*
+	INLINE SVG
+	Color can be changed inline (search for %23, which equals #)
+*/
+
+.facade-minimal:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  height: 56px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 3px 3px 0px 0px;
+  background: url('data:image/svg+xml;charset=utf-8,<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="minimal-browser-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"><g id="Ellipse_1"><g><circle fill-rule="evenodd" clip-rule="evenodd" fill="%23B3B3B3" cx="8" cy="8" r="5"/></g></g></svg>')
+      16px 22px no-repeat,
+    url('data:image/svg+xml;charset=utf-8,<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="minimal-browser-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"><g id="Ellipse_1"><g><circle fill-rule="evenodd" clip-rule="evenodd" fill="%23B3B3B3" cx="8" cy="8" r="5"/></g></g></svg>')
+      32px 22px no-repeat,
+    url('data:image/svg+xml;charset=utf-8,<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="minimal-browser-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"><g id="Ellipse_1"><g><circle fill-rule="evenodd" clip-rule="evenodd" fill="%23B3B3B3" cx="8" cy="8" r="5"/></g></g></svg>')
+      48px 22px no-repeat,
+    url('data:image/svg+xml;charset=utf-8,<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg version="1.1" id="minimal-browser-settings" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"><g id="Menu_icon"><g><path fill-rule="evenodd" clip-rule="evenodd" fill="%23B3B3B3" d="M1,1v3h14V1H1z M1,10h14V7H1V10z M1,16h14v-3H1V16z"/></g></g></svg>')
+      right 16px top 22px no-repeat,
+    #e8e8e8;
+}
+
+.facade-minimal:after {
+  content: attr(data-url);
+  position: absolute;
+  padding: 2px 16px 0px 32px;
+  top: 16px;
+  height: 24px;
+  left: 80px;
+  right: 48px;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 1px -1px rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: rtl;
+  text-align: left;
+  background: url('data:image/svg+xml;charset=utf-8,<svg version="1.1" id="Refresh_icon_1_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve"><g id="minimal-browser-refresh"><g><path fill-rule="evenodd" clip-rule="evenodd" fill="%23B3B3B3" d="M12.5,10.9l2.5-3h-1.7C13.2,4.6,10.7,2,7.7,2C4.5,2,2,4.7,2,8c0,3.3,2.5,6,5.7,6c1.3,0,2.5-0.5,3.5-1.3l-1-1.1c-0.7,0.5-1.6,0.9-2.5,0.9c-2.3,0-4.2-2-4.2-4.5s1.9-4.5,4.2-4.5c2.3,0,4.2,1.9,4.2,4.4h-2L12.5,10.9z"/></g></g></svg>')
+      8px 6px no-repeat,
+    #ffffff;
+}
