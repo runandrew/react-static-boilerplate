@@ -10,7 +10,7 @@ collections:
     label: "Project" # Used in the UI
     folder: "src/projects" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter. 
     # Remove any that aren't needed for posts
       # - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
@@ -20,5 +20,5 @@ collections:
       - {label: "Year", name: "year", widget: "string"}
       - {label: "Role", name: "role", widget: "string"}
       - {label: "Date", name: "date", widget: "string"}
-      - {label: "Techs", name: "techs", widget: "list" }
-      - {label: "Images", name: "img", widget: "list" }
+      # - {label: "Techs", name: "techs", widget: "list" }
+      # - {label: "Images", name: "img", widget: "list" }
