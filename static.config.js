@@ -4,43 +4,18 @@ const path = require("path");
 const matter = require("gray-matter");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-function getProjects() {
-  const items = [];
-  // Walk ("klaw") through posts directory and push file paths into items array //
+function getSingleFile(path) {
   const getFiles = () =>
     new Promise(resolve => {
-      // Check if posts directory exists //
-      if (fs.existsSync("./src/projects")) {
-        klaw("./src/projects")
-          .on("data", item => {
-            // Filter function to retrieve .md files //
-            if (path.extname(item.path) === ".md") {
-              // If markdown file, read contents //
-              const data = fs.readFileSync(item.path, "utf8");
-              // Convert to frontmatter object and markdown content //
-              const dataObj = matter(data);
-              // Create slug for URL //
-              dataObj.data.slug = dataObj.data.projectName
-                .toLowerCase()
-                .replace(/ /g, "-")
-                .replace(/[^\w-]+/g, "");
-              // Remove unused key //
-              // Push object into items array //
-              delete dataObj.orig;
-              items.push(dataObj);
-            }
-          })
-          .on("error", e => {
-            console.log(e);
-          })
-          .on("end", () => {
-            // Resolve promise for async getRoutes request //
-            // posts = items for below routes //
-            resolve(items);
-          });
-      } else {
-        // If src/posts directory doesn't exist, return items as empty array //
-        resolve(items);
+      if (fs.existsSync(path)) {
+        const data = fs.readFileSync(path, "utf8");
+        const dataObj = matter(data);
+        dataObj.data.slug = dataObj.data.title
+          .toLowerCase()
+          .replace(/ /g, "-")
+          .replace(/[^\w-]+/g, "");
+        delete dataObj.orig;
+        resolve(dataObj);
       }
     });
   return getFiles();
@@ -51,24 +26,22 @@ export default {
     title: "React Static with Netlify CMS"
   }),
   getRoutes: async () => {
-    const projects = await getProjects();
+    const home = await getSingleFile("./src/pages/home.md");
+    const about = await getSingleFile("./src/pages/about.md");
     return [
       {
         path: "/",
         component: "src/containers/Home",
         getData: () => ({
-          projects
+          home
         })
       },
       {
-        path: "/projects",
-        children: projects.map(project => ({
-          path: `/${project.data.slug}`,
-          component: "src/containers/Project",
-          getData: () => ({
-            project
-          })
-        }))
+        path: "/about",
+        component: "src/containers/About",
+        getData: () => ({
+          about
+        })
       },
       {
         is404: true,
