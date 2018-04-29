@@ -13,7 +13,7 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter. 
     # Remove any that aren't needed for posts
-      # - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Project Name", name: "projectName", widget: "string"}
       - {label: "Title", name: "title", widget: "string"}

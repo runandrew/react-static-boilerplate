@@ -1,4 +1,5 @@
 ---
+layout: blog
 date: "2015-01-27T18:58:54-05:00"
 title: "cubic"
 year: "2014-2015"
