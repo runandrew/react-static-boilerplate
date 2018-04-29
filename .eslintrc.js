@@ -1,3 +1,1 @@
-module.exports = {
-  extends: 'react-tools',
-}
+module.exports = {};

@@ -41,11 +41,6 @@ export default withRouteData(({ project }) => (
                 </a>
               </div>
             ))}
-            {/* { range $i, $img := project.data.img }
-            <div className="facade-minimal">
-              <a href="/img/{ index $.Site.Data.img.hash $img }"><img src="/img/{ index $.Site.Data.img.hash $img }"></a>
-            </div>
-          { end } */}
           </div>
         </div>
       </div>
