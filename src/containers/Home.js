@@ -79,9 +79,9 @@ export default withRouteData(({ projects }) => (
           <div className="col-xs-12 col-md-10 col-lg-8">
             <h2 className="sect-title">Projects</h2>
 
-            {projects.map(project => {
+            {projects.map((project, i) => {
               return (
-                <div className="thing">
+                <div className="thing" key={i}>
                   <p className="line-item">
                     <a href={`/projects/${project.data.slug}`}>
                       <semistrong>{project.data.projectName}</semistrong>
