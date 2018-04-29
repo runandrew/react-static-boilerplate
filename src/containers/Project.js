@@ -19,8 +19,11 @@ export default withRouteData(({ project }) => (
             <div id="top-rectUnder" />
             <h2>{project.data.role}</h2>
             <p>
-              {project.data.year} - {project.data.description}
-              {project.content}
+              <Markdown
+                source={`${project.data.year} - ${project.data.description}`}
+                escapeHtml={false}
+              />
+              <Markdown source={project.content} escapeHtml={false} />
             </p>
             <div className="row">
               <div className="col-xs-12 col-sm-10 no-gutter marg-top">
