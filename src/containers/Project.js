@@ -27,9 +27,9 @@ export default withRouteData(({ project }) => (
             </p>
             <div className="row">
               <div className="col-xs-12 col-sm-10 no-gutter marg-top">
-                {/* {project.data.techs.map(tech => (
+                {project.data.techs.map(tech => (
                   <span className="tag-tech">{tech}</span>
-                ))} */}
+                ))}
               </div>
             </div>
             <hr className="sub-divide" />
@@ -37,13 +37,13 @@ export default withRouteData(({ project }) => (
         </div>
         <div className="row">
           <div className="col-xs-12">
-            {/* {project.data.img.map(img => (
+            {project.data.img.map(img => (
               <div className="facade-minimal">
                 <a href={`/uploads/${img}`}>
                   <img src={`/uploads/${img}`} />
                 </a>
               </div>
-            ))} */}
+            ))}
           </div>
         </div>
       </div>
