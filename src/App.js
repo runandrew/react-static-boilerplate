@@ -6,9 +6,23 @@ import Routes from "react-static-routes";
 
 import "./app.scss";
 
+const Nav = () => (
+  <div>
+    <ul>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+    </ul>
+  </div>
+);
+
 const App = () => (
   <Router>
     <div>
+      <Nav />
       <Routes />
     </div>
   </Router>
