@@ -14,6 +14,6 @@ p1: |-
 
   This is a paragraph for the home page
 
-  Here we go!!
+  Inline `code style`.
 ---
 
