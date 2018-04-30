@@ -15,7 +15,7 @@ collections:
         fields:
           - {label: Title, name: title, widget: string}
           - {label: Date, name: date, widget: date}
-          - {label: Paragraph 1, name: p1, widget: text}
+          - {label: Paragraph 1, name: p1, widget: markdown}
       - label: "About Page"
         name: "about"
         file: "src/pages/about.md"
