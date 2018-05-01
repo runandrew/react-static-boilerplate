@@ -15,8 +15,21 @@ class Login extends React.Component {
         <div className="section">
           <div className="container">
             <div className="row">
-              <div className="col-xs-12 col-md-10 col-lg-8" id="about-row">
-                <button onClick={this.handleSubmit.bind(this)}>Login</button>
+              <div className="col-lg-12">
+                {this.props.userRoot.user ? (
+                  <div>
+                    <h2>{`You're logged in ${
+                      this.props.userRoot.user.name
+                    }!`}</h2>
+                  </div>
+                ) : (
+                  <div>
+                    <h2>Please login:</h2>
+                    <button onClick={this.handleSubmit.bind(this)}>
+                      Login
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -26,8 +39,12 @@ class Login extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  userRoot: state.userRoot
+});
+
 const mapDispatchToProps = dispatch => ({
   fetchAuthUser: () => dispatch(authUser())
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

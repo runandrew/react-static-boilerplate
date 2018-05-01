@@ -34,7 +34,9 @@ export const authUser = () => {
     dispatch(userAuthRequest());
 
     Api.get({
-      url: "https://jsonplaceholder.typicode.com/users/1"
+      url: `https://jsonplaceholder.typicode.com/users/${Math.floor(
+        Math.random() * 10
+      )}`
     })
       .then(user => {
         dispatch(userAuthSuccess(user));
