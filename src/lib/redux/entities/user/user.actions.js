@@ -35,7 +35,7 @@ export const authUser = () => {
 
     Api.get({
       url: `https://jsonplaceholder.typicode.com/users/${Math.floor(
-        Math.random() * 10
+        Math.random() * 10 + 1
       )}`
     })
       .then(user => {
