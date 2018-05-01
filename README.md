@@ -1,4 +1,4 @@
-# React Statice Boilerplate
+# React Static Boilerplate
 
 ## Installation
 
@@ -16,4 +16,10 @@ yarn start
 
 ```sh
 yarn build
+```
+
+To serve:
+
+```sh
+yarn serve
 ```
