@@ -1,12 +1,10 @@
 import React from "react";
 import { withRouteData } from "react-static";
-import Markdown from "react-markdown";
 import { connect } from "react-redux";
 
 class Home extends React.Component {
   render() {
     const {
-      home,
       userRoot: { user }
     } = this.props;
     return (
@@ -15,8 +13,8 @@ class Home extends React.Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12 col-md-10 col-lg-8" id="about-row">
-                <h1>{home.data.title}</h1>
-                <Markdown source={home.data.p1} escapeHtml={false} />
+                <h1>Home Title</h1>
+                <p>This is a paragraph for the home page</p>
                 {user && (
                   <div>
                     <h2>Looks like you're logged in!</h2>
