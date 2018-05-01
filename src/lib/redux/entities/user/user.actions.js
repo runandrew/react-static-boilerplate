@@ -1,3 +1,5 @@
+import Api from "../../../utils/Api";
+
 export const userAuthActions = {
   USER_AUTH_REQUEST: "USER_AUTH_REQUEST",
   USER_AUTH_SUCCESS: "USER_AUTH_SUCCESS",
@@ -8,22 +10,37 @@ export const userAuthActions = {
 
 const userAuthRequest = () => {
   return {
-    type: spacesActions.USER_AUTH_REQUEST
+    type: userAuthActions.USER_AUTH_REQUEST
   };
 };
 
 const userAuthSuccess = user => {
   return {
-    type: spacesActions.USER_AUTH_SUCCESS,
+    type: userAuthActions.USER_AUTH_SUCCESS,
     user: user
   };
 };
 
 const userAuthReject = error => {
   return {
-    type: spacesActions.USER_AUTH_REJECT,
+    type: userAuthActions.USER_AUTH_REJECT,
     error: error
   };
 };
 
 // Request
+export const authUser = () => {
+  return dispatch => {
+    dispatch(userAuthRequest());
+
+    Api.get({
+      url: "https://jsonplaceholder.typicode.com/users/1"
+    })
+      .then(user => {
+        dispatch(userAuthSuccess(user));
+      })
+      .catch(err => {
+        dispatch(userAuthReject(err));
+      });
+  };
+};

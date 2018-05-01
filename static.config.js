@@ -44,6 +44,11 @@ export default {
         })
       },
       {
+        path: "/login",
+        component: "src/components/screens/login/Login",
+        getData: () => ({})
+      },
+      {
         is404: true,
         component: "src/components/screens/404/404"
       }
