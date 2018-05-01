@@ -1,6 +1,9 @@
 import React from "react";
 import { Router, Link } from "react-static";
 import { hot } from "react-hot-loader";
+import { Provider } from "react-redux";
+import store from "./lib/redux/store";
+
 //
 import Routes from "react-static-routes";
 
@@ -20,12 +23,14 @@ const Nav = () => (
 );
 
 const App = () => (
-  <Router>
-    <div>
-      <Nav />
-      <Routes />
-    </div>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <div>
+        <Nav />
+        <Routes />
+      </div>
+    </Router>
+  </Provider>
 );
 
 export default hot(module)(App);
