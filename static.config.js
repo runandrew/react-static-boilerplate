@@ -26,22 +26,21 @@ export default {
     title: "React Static with Netlify CMS"
   }),
   getRoutes: async () => {
-    const home = await getSingleFile("./src/data/pages/home.md");
-    const about = await getSingleFile("./src/data/pages/about.md");
     return [
       {
         path: "/",
         component: "src/components/screens/home/Home",
-        getData: () => ({
-          home
-        })
+        getData: () => ({})
       },
       {
         path: "/about",
         component: "src/components/screens/about/About",
-        getData: () => ({
-          about
-        })
+        getData: () => ({})
+      },
+      {
+        path: "/login",
+        component: "src/components/screens/login/Login",
+        getData: () => ({})
       },
       {
         is404: true,
